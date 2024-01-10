@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-light p-4">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-item" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-item" href="options">Back <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-item" href="/teacher/logout">Logout <span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    <nav class="navbar navbar-light bg-light">
+      <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+      style="width: 100%;">
+        <span class="navbar-toggler-icon" title="Menu"></span>
+      </button>
+    </nav>
+  </div>
+
+  <% if(typeof error != 'undefined') { %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+    <% } %>
+  
+<div class="card-body">
+    <h5 class="card-title">Add a new student : </h5>
+    <form method="POST" autocomplete="off" action="add">
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label">Name : </label>
+                <input type="text" name="name" required class="form-control">
+            </div>
+            <label class="form-label">Roll No. : </label>
+            <input type="number" name="rollNumber" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date of Birth : </label>
+            <input type="date" id="dt" name="dob" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Score : </label>
+            <input type="number" maxLength="3" name="marks" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+        <a href="/teacher/viewAll" class="btn btn-primary">View All</a>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('dt').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+  </script>
+
+<%- include('../partials/footer.ejs') %>

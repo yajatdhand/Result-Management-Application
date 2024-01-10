@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-light p-4">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-item" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-item" href="login">Back <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-item" href="/teacher/logout">Logout <span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    <nav class="navbar navbar-light bg-light">
+      <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+      style="width: 100%;">
+        <span class="navbar-toggler-icon" title="Menu"></span>
+      </button>
+    </nav>
+  </div>
+
+<div class="card-body">
+    <h5 class="card-title">Here are your options :</h5>
+    <div class="optionDiv">
+        <button class="btn">
+            <a href="/teacher/viewAll">View All Students</a>
+        </button>
+        <button class="btn">
+            <a href="/teacher/addStudent">Add Student</a>
+        </button>
+    </div>
+  </div>
+<%- include('../partials/footer.ejs') %>

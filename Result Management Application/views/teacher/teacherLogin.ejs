@@ -1,0 +1,58 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-light p-4">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-item" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-item" href="/">Back <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-item" href="/teacher/logout">Logout <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+    style="width: 100%;">
+      <span class="navbar-toggler-icon" title="Menu"></span>
+    </button>
+  </nav>
+</div>
+
+<% if(typeof error != 'undefined') { %>
+  <div class="alert alert-danger" role="alert">
+    <%= error %>
+  </div>
+  <% } %>
+
+<div class="card-body">
+  <h5 class="card-title">Login as a teacher : </h5>
+  <div class="teachLog">
+    <form method="POST" class="teachForm" action="authAndView">
+      <div class="mb-3">
+        <label class="form-label">Password : </label>
+        <input type="password" required name="password"  class="form-control" id="pass">
+        <br>
+        <input type="checkbox" style="width: 30px;" onclick="myFunction()">Show Password
+        <br>
+      </div>
+      <a><button type="submit" class="btn btn-primary">Submit</button></a>
+    </form>
+  </div>
+  <script>
+    function myFunction() {
+    var x = document.getElementById("pass");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+  </script>
+</div>
+<%- include('../partials/footer.ejs') %>

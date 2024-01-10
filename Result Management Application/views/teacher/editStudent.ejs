@@ -1,0 +1,55 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-light p-4">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-item" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-item" href="/teacher/viewAll">Back <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-item" href="/teacher/logout">Logout <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-light">
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"
+    style="width: 100%;">
+      <span class="navbar-toggler-icon" title="Menu"></span>
+    </button>
+  </nav>
+</div>
+
+<div class="card-body">
+  <h5 class="card-title">Editing form for student : <%=result.name%></h5>
+  <form method="POST" class="addStu" autocomplete="off" action="<%=result._id%>/edit">
+    <div class="mb-3">
+      <label class="form-label">Name : </label>
+      <input type="text" name="name" required class="form-control" value="<%=result.name%>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Roll No. : </label>
+        <input type="number" name="rollNumber" value="<%=result.rollNumber.trim()%>" required class="form-control" >
+      </div>     
+     
+      <div class="mb-3">
+        <label class="form-label">Date of Birth : </label>
+        <input type="date" id="dt" name="dob" value="<%=result.dob%>" placeholder="yyyy-mm-dd" required class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Marks : </label>
+        <input type="number" name="marks" value="<%=Number(result.marks.trim())%>" required class="form-control">
+      </div>
+    <button type="text" class="btn btn-success">Update</button>
+</form>
+</div>
+
+<script>
+  document.getElementById('dt').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+</script>
+
+<%- include('../partials/footer.ejs') %>

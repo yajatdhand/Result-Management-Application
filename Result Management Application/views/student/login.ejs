@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/studentNav.ejs') %>
+
+<div class="card-body">
+  <h5 class="card-title">Login as a student :  </h5>
+  <div style="text-align: center;">
+    <form method="POST"action="getMarks">
+        <div class="mb-3">
+          <label class="form-label">Roll no : </label>
+          <input type="number" name="roll" required class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date of Birth : </label>
+          <input type="date" id="dt" name="dob" required class="form-control">
+        </div>
+        <a><button type="submit" class="btn btn-primary">Submit</button></a>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById('dt').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+</script>
+
+<%- include('../partials/footer.ejs') %>

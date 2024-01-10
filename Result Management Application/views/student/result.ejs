@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/studentNav.ejs') %>   
+
+<div class="card-body">
+    <% if(data!='Incorrect credentials, please try again!' ) { %>
+        <h5 class="card-title">Below is your result! </h5>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Roll number</th>
+                    <th scope="col">Date of birth</th>
+                    <th scope="col">Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= data.name %></td>
+                    <td><%= data.rollNumber %></td>
+                    <td><%= data.dob %></td>
+                    <td><%= data.marks %></td>
+                </tr>
+            </tbody>
+        </table>
+        <% } else { %>
+            <div class="text-center">
+                <h1><%= data %></h1>
+            </div>
+            <% } %>
+  </div>
+
+   
+
+<%- include('../partials/footer.ejs') %>
