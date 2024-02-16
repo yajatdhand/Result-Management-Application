@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 });
 
 //mongoDB atlas connection and initializing server
-mongoose.connect('<your mongoDB URL').then(() => {
+mongoose.connect('mongodb+srv://yajatdhand:nJ4IPzlvRuR8lrZV@cluster0.mroir2c.mongodb.net/?retryWrites=true&w=majority').then(() => {
     console.log('Connected to database');
     app.listen(4200, () => {
         console.log("Server is running on port 4200");
